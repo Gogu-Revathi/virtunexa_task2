@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interactive Map</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+<body>
+  <div class="flex flex-col md:flex-row h-screen">
+    <div class="w-full md:w-1/4 p-4 bg-white shadow-lg overflow-y-auto">
+      <h2 class="text-2xl font-bold mb-4">📍 Your Markers</h2>
+      <div class="flex space-x-2 mb-2">
+        <input id="searchInput" type="text" placeholder="Search a location..."
+               class="flex-1 p-2 border border-gray-300 rounded shadow-sm focus:ring-2 focus:ring-blue-400"/>
+        <button onclick="searchLocation()"
+                class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">🔍</button>
+      </div>
+      <button onclick="locateUser()"
+              class="bg-indigo-500 text-white w-full py-2 mb-2 rounded hover:bg-indigo-600">📍 Locate Me</button>
+      <button onclick="clearAllMarkers()"
+              class="bg-red-500 text-white w-full py-2 mb-4 rounded hover:bg-red-600">🧹 Clear All Markers</button>
+      <ul id="markerList" class="space-y-2"></ul>
+    </div>
+    <div id="map" class="flex-1 h-screen"></div>
+  </div>
+
+  <!-- Modal -->
+  <div id="markerModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+    <div class="bg-white p-6 rounded-lg shadow-xl w-96 transform transition-all">
+      <h3 class="text-xl font-semibold mb-4">📝 Add Marker Details</h3>
+      <input id="markerTitle" type="text" placeholder="Title"
+             class="w-full p-2 mb-3 border rounded focus:outline-none focus:ring focus:ring-blue-300">
+      <textarea id="markerNote" placeholder="Enter notes..."
+                class="w-full p-2 border rounded focus:outline-none focus:ring focus:ring-blue-300 mb-4"></textarea>
+      <div class="flex justify-end space-x-2">
+        <button onclick="closeModal()" class="bg-gray-300 px-4 py-2 rounded hover:bg-gray-400">Cancel</button>
+        <button onclick="addMarker()" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Add</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

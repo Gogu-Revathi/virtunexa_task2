@@ -1,0 +1,7 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+}
+#map {
+  transition: all 0.3s ease;
+}
