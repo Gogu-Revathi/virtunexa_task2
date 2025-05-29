@@ -51,9 +51,4 @@ Notes
 License
 This project is licensed under the MIT License.
 
-## Contact
-For any questions or suggestions, please contact: [Your Name] — [your.email@example.com]
-
----
-
-*Happy mapping!*
+Happy mapping!
